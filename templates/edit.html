@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title%} Add or Edit Page {% endblock %}
+{% block body %}
+    <main class="contact-page">
+        <div class="container">
+            <h3>More Options</h3>
+            <a href="/dashboard"><button type="button" class="btn btn-primary btn-md m-10">&larr; Dashboard</button></a>
+            <a href="/logout"><button type="button" class="btn btn-danger btn-md m-10">Logout</button></a>
+            <h1 class="oleez-page-title wow fadeInUp">Edit or Add Post</h1>
+
+            <br>
+            <div class="row">
+
+                <div class="col-md-12 pl-lg-5 wow fadeInRight">
+                    <form action="/edit/{% if post != None%}{{post.sno}} {% else %} 0 {% endif %}" method="post" class="oleez-contact-form">
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="title_1" name="title" value="{{post.title}}" required>
+                            <label for="title_1">*Title</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="slug_1" name="slug" value="{{post.slug}}" required>
+                            <label for="slug_1">*Slug</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="oleez-input" id="img_file" name="img_file" value="{{post.img_file}}" required>
+                            <label for="img_file">*Image File</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">*Content</label>
+                            <textarea name="content" id="content" rows="15" class="oleez-textarea" required>{{post.content}}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock%}
+    

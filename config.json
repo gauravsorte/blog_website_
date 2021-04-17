@@ -1,0 +1,16 @@
+{
+  "params":
+  {
+    "local_server" : "True",
+    "local_uri": "mysql://root:root@localhost/blogwebsite",
+    "prod_uri": "mysql://root:root@localhost/blogwebsite",
+    "blog_name": "Gaurav Blog",
+    "tag_line": "Heaven For Programmer",
+    "gmail-user": "sortegaurav9@gmail.com",
+    "gmail-password": "Gaurav269981",
+    "no_of_posts": 2,
+    "admin-user": "gaurav@gmail.com",
+    "admin-password": "123456",
+    "upload_folder": "C:\\Users\\Gaurav\\PycharmProjects\\blog_website\\static\\images"
+  }
+}

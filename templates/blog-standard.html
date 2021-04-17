@@ -1,0 +1,43 @@
+{% extends "layout.html"%}
+
+{% block title%} Blog Site {% endblock %}
+{% block body %}
+    <main class="blog-standard">
+        <div class="container">
+            <h1 class="oleez-page-title wow fadeInUp">Blog Standard</h1>
+            <div class="row">
+                    <div class="col-md-8">
+<!--                        for loop-->
+                        {% for post in posts %}
+                        {% set fname = 'images/'+post.img_file %}
+                        <article class="blog-post wow fadeInUp">
+                            <img src="{{ url_for('static', filename=fname) }}" alt="blog post" class="post-thumbnail">
+                            <p class="post-date">{{post.date}}</p>
+                            <h4 class="post-title">{{post.title}}</h4>
+                            <p class="post-excerpt"> {{post.content[0:200]}}.... </p>
+                            <a href="post/{{post.slug}}" class="post-permalink">READ MORE</a>
+                        </article>
+                        {% endfor %}
+<!--                        end loop-->
+                        <nav class="oleez-pagination wow fadeInUp">
+<!--                            previous button-->
+                            {% if prev != '/#'%}
+                            <a href="{{prev}}" class="next">&larr;</a>
+                            {% endif %}
+                            {% for i in pagination %}
+                                {% if i == page %}
+                                    <a href="/?page={{i}}" class="active">0{{i}}</a>
+                                {% else %}
+                                    <a href="/?page={{i}}">0{{i}}</a>
+                            {% endif %}
+                            {% endfor %}
+<!--                            next button-->
+                            {% if next != '/#' %}
+                            <a href="{{next}}" class="next">&rarr;</a>
+                            {% endif %}
+                        </nav>
+                    </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

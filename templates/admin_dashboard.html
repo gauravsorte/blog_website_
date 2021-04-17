@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %} Blog Single {% endblock %}
+{% block body %}
+    <main class="blog-post-single">
+        <div class="container">
+           <h1>Add/Edit Posts</h1>
+            <h3>More Options</h3>
+            <a href="/edit/0"><button type="button" class="btn btn-primary btn-md">Add New Post</button></a>
+            <a href="/logout"><button type="button" class="btn btn-danger btn-md my-10">Logout</button></a>
+            <br>
+            <br>
+            <hr>
+            <h1>Upload A File</h1>
+            <form action="/uploader" method="post" enctype="multipart/form-data">
+                <input type="file" name="file1">
+                <button type="submit" class="btn btn-primary btn-md">Submit</button><br>
+                {% if success != None%}
+                <span class="success">Success</span>
+                {% endif %}
+                {% if error != None%}
+                <span class="error">Error</span>
+                {% endif %}
+            </form>
+            <br>
+            <hr>
+            <br>
+
+            <table class="table tabel-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">SNO</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                    <tr>
+                        <th scope="row">{{post.sno}}</th>
+                        <td>{{post.title}}</td>
+                        <td>{{post.slug}}</td>
+                        <td>{{post.content[0:40]}}...</td>
+                        <td>
+                            <a href="/edit/{{post.sno}}"><button type="button" class="btn btn-success btn-sm my-2">Edit</button></a>
+                            <a href="/delete/{{post.sno}}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}
+    

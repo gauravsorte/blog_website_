@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% block title %} {% endblock %}</title>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/animate.css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/fancybox/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='vendors/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/loader.js' ) }}"></script>
+</head>
+
+<body>
+    <div class="oleez-loader"></div>
+    <header class="oleez-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='images/blog_img_2.jpg') }}" alt="Oleez"></a>
+            <ul class="nav nav-actions d-lg-none ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!" data-toggle="searchModal">
+                        <img src="assets/images/search.svg" alt="search">
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#!" data-toggle="offCanvasMenu">
+                        <img src="{{ url_for('static', filename='images/social icon@2x.svg') }}" alt="social-nav-toggle">
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#oleezMainNav" aria-controls="oleezMainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="oleezMainNav">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="/">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-none d-lg-flex">
+                    <li class="nav-item active">
+                        <a class="nav-link nav-link-btn" href="#!" data-toggle="searchModal">
+                            <img src="{{ url_for('static', filename='images/search.svg') }}" alt="search">
+                        </a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard" >
+                        Admin Dashboard
+                    </a>
+                </li>
+                    <li class="nav-item ml-5">
+                        <a class="nav-link pr-0 nav-link-btn" href="#!" data-toggle="offCanvasMenu">
+                            <img src="{{ url_for('static', filename='images/social icon@2x.svg') }}" alt="social-nav-toggle">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {% block body %}{% endblock %}
+
+
+<!--    Footer-->
+    <footer class="oleez-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{{ url_for('static', filename='images/blog_img_2.jpg') }}" alt="oleez" class="footer-logo">
+                        <p class="footer-intro-text">Don't be shy, get in touch with us and create the world again!</p>
+                        <nav class="footer-social-links">
+                            <a href="#!">Fb</a>
+                            <a href="#!">Tw</a>
+                            <a href="#!">In</a>
+                            <a href="#!">Be</a>
+                        </nav>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">PHONE</h6>
+                                <p class="widget-content">+91 7978252008</p>
+                            </div>
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">ENQUIRUES</h6>
+                                <p class="widget-content">info@blog.site</p>
+                            </div>
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">ADDRESS</h6>
+                                <p class="widget-content">Akurdi <br> Pune India</p>
+                            </div>
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">WORK HOURS</h6>
+                                <p class="widget-content">Weekdays: 09:00 - 18:00 <br> Weekends: 11:00 - 17:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-text">
+                <p class="mb-md-0">©  2020, Gaurav Theme. Made with passion by <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer" class="text-reset">BootstrapDash</a>.</p>
+                <p class="mb-0">All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Off canvas social menu -->
+    <nav id="offCanvasMenu" class="off-canvas-menu">
+        <button type="button" class="close" aria-label="Close" data-dismiss="offCanvasMenu">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <ul class="oleez-social-menu">
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Facebook</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Instagram</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Behance</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Dribbble</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Email</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Full screen search box -->
+    <div id="searchModal" class="search-modal">
+        <button type="button" class="close" aria-label="Close" data-dismiss="searchModal">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <form action="index.html" method="get" class="oleez-overlay-search-form">
+            <label for="search" class="sr-only">Search</label>
+            <input type="search" class="oleez-overlay-search-input" id="search" name="search" placeholder="Search here">
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='vendors/popper.js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/wowjs/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/fancybox/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+
+</html>

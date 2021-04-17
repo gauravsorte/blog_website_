@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %} Blog Single {% endblock %}
+{% block body %}
+{% set fname = 'images/'+post.img_file %}
+    <main class="blog-post-single">
+        <div class="container">
+            <h1 class="post-title wow fadeInUp">{{post.title}}</h1>
+            <div class="row">
+                <div class="col-md-8 blog-post-wrapper">
+                    <div class="post-header wow fadeInUp">
+                        <img src="{{url_for('static', filename=fname)}}" alt="blog post" class="post-featured-image">
+                        <p class="post-date">{{post.date}}</p>
+                    </div>
+                    <div class="post-content wow fadeInUp">
+                        {{post.content}}
+                    </div>
+                    <div class="post-tags wow fadeInUp">
+                        <a href="#!" class="post-tag">Design Studio</a>
+                        <a href="#!" class="post-tag">Creative Design</a>
+                    </div>
+                    <div class="post-navigation wow fadeInUp">
+                        <a href="/prevPost/{{post.slug}}"><button class="btn prev-post"> Prev Post</button></a>
+                        <a href="/nextPost/{{post.slug}}"><button class="btn next-post"> Next Post</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+    
